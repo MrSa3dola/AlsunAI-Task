@@ -147,7 +147,6 @@ def handle_query(user_query: str) -> str:
         english_query = translate_text(user_query, target="en")
         if is_math_related(english_query):
             result_en = get_agent_result(english_query)
-            print(result_en)
             return translate_text(result_en, target="ar")
         else:
             return "رحباً! أنا مساعد ذكاء اصطناعي متخصص في الرياضيات فقط. يسعدني مساعدتك في أي استفسار رياضي."
