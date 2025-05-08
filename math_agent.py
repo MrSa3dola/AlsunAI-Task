@@ -15,7 +15,6 @@ from translation import translate_text
 load_dotenv()
 
 
-# -- Chain and Model Setup ----------------------------------------------------
 class ChainState(TypedDict):
     messages: Annotated[Sequence[BaseMessage], add_messages]
 
@@ -145,7 +144,6 @@ def handle_query(user_query: str) -> str:
     """
     lang = detect_language(user_query)
     if lang == "ar":
-        # Translate to English for processing
         english_query = translate_text(user_query, target="en")
         if is_math_related(english_query):
             result_en = get_agent_result(english_query)
@@ -154,12 +152,7 @@ def handle_query(user_query: str) -> str:
         else:
             return "رحباً! أنا مساعد ذكاء اصطناعي متخصص في الرياضيات فقط. يسعدني مساعدتك في أي استفسار رياضي."
     else:
-        # English or unknown
         if is_math_related(user_query):
             return get_agent_result(user_query)
         else:
             return "Hello! I'm here to assist with math-related questions only. Please let me know how I can help you with mathematics."
-
-
-if __name__ == "__main__":
-    print(handle_query("ناتج تكامل 2س+5"))

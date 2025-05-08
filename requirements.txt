@@ -1,8 +1,6 @@
 langgraph==0.4.1
-numexpr==2.10.2
 langchain-openai==0.3.16
 python-dotenv==1.1.0
 sympy==1.14.0
 fastapi==0.115.12
 uvicorn[standard]
-pyngrok

@@ -70,6 +70,3 @@ def sympy_calculator(command: str) -> str:
             return str(expr.evalf())
         except Exception:
             return str(expr)
-
-
-# print(sympy_calculator.invoke("5**2"))
